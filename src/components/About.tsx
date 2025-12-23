@@ -81,30 +81,27 @@ const About = () => {
             {/* Introduction */}
             <div className="space-y-6">
               <p className="body-large text-foreground">
-                I'm Mohamed Najahi—a 3rd-year Computer Science with AI student at the National Institute of Business Management in Sri Lanka.
-              </p>
-              <p className="body-text text-muted-foreground italic">
-                But that's just context. Here's what actually defines me:
+                I'm Mohamed Najahi, a 3rd-year Computer Science with AI student at the National Institute of Business Management in Sri Lanka.
               </p>
             </div>
 
             {/* Core values */}
             <div className="space-y-6 body-text text-muted-foreground">
               <p>
-                I believe technology should serve humanity, not the other way around. Every project I build starts with a simple question: <span className="text-foreground">Will this make someone's life better?</span> If the answer isn't a clear yes, I don't build it.
+                <span className="text-foreground font-medium">I build technology to help people.</span> I only work on projects that can make life better in a real way.
               </p>
               <p>
-                I'm disciplined about learning. I don't skim tutorials—I dive deep. I read research papers, replicate studies, break down complex systems until I understand them at a fundamental level. <span className="text-primary">Curiosity isn't a hobby for me; it's a way of life.</span>
+                <span className="text-primary font-medium">I like learning deeply.</span> I don't rush through topics. I take time to understand how things really work.
               </p>
               <p>
-                I'm driven by impact, not recognition. I don't build to showcase technical skill—I build to solve real problems for real people. Whether it's monitoring water quality to protect communities or enabling communication for deaf individuals, the goal is always the same: <span className="text-secondary">make a measurable difference.</span>
+                <span className="text-secondary font-medium">I focus on solving real problems,</span> not showing off skills. My goal is to create useful solutions that have a positive impact.
               </p>
             </div>
 
             {/* Personal touch */}
             <blockquote className="border-l-2 border-primary pl-6 py-2">
               <p className="body-large text-foreground italic">
-                "When I'm not building, I'm learning. When I'm not learning, I'm thinking about what to build next."
+                "I'm always learning, building, and thinking about what I can create next."
               </p>
             </blockquote>
           </div>
