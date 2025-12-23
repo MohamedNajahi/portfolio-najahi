@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import mohamedPhoto from "@/assets/mohamed-najahi.jpeg";
 
 const About = () => {
   const [visible, setVisible] = useState(false);
@@ -32,33 +33,36 @@ const About = () => {
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-center">
-          {/* Profile visual */}
+          {/* Profile photo */}
           <div 
             className={`lg:col-span-2 transition-all duration-1000 ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
             }`}
           >
-            <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden relative">
-              {/* Gradient placeholder for photo */}
-              <div 
-                className="absolute inset-0"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(var(--primary) / 0.3) 0%, hsl(var(--midnight)) 50%, hsl(var(--secondary) / 0.2) 100%)'
-                }}
+            <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden relative group">
+              {/* Photo */}
+              <img 
+                src={mohamedPhoto} 
+                alt="Mohamed Najahi - AI Developer and Computer Science Student"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
               
-              {/* Decorative elements */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-7xl font-display font-black text-foreground/10">
-                  MN
-                </div>
-              </div>
-
-              {/* Glow effect */}
+              {/* Overlay gradient for style */}
               <div 
-                className="absolute -inset-1 rounded-2xl opacity-50 blur-xl animate-glow-pulse"
+                className="absolute inset-0 opacity-30 mix-blend-overlay pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, hsl(var(--primary) / 0.3) 0%, transparent 50%, hsl(var(--secondary) / 0.2) 100%)'
+                }}
+              />
+
+              {/* Border glow effect */}
+              <div 
+                className="absolute -inset-1 rounded-2xl opacity-40 blur-xl -z-10 animate-glow-pulse"
                 style={{ background: 'var(--gradient-cyan)' }}
               />
+              
+              {/* Frame border */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-primary/20 pointer-events-none" />
             </div>
           </div>
 

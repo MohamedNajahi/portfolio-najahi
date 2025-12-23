@@ -5,7 +5,71 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light Mode - Default */
   :root {
+    /* Core Palette - Light & Clean */
+    --background: 40 30% 97%;
+    --foreground: 210 60% 10%;
+    
+    /* Navy depths */
+    --midnight: 210 30% 92%;
+    --midnight-deep: 210 25% 95%;
+    
+    /* Primary - Electric Cyan */
+    --primary: 195 100% 35%;
+    --primary-glow: 195 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Warm Amber */
+    --secondary: 25 100% 45%;
+    --secondary-glow: 25 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent */
+    --accent: 210 40% 94%;
+    --accent-foreground: 210 60% 10%;
+    
+    /* UI Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 210 60% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 60% 10%;
+    
+    --muted: 210 20% 92%;
+    --muted-foreground: 210 15% 40%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 210 20% 85%;
+    --input: 210 20% 85%;
+    --ring: 195 100% 35%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(40 30% 97%) 0%, hsl(210 30% 95%) 50%, hsl(40 20% 96%) 100%);
+    --gradient-cyan: linear-gradient(135deg, hsl(195 100% 35%) 0%, hsl(200 100% 45%) 100%);
+    --gradient-amber: linear-gradient(135deg, hsl(25 100% 45%) 0%, hsl(30 100% 55%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(195 100% 35% / 0.1) 0%, transparent 70%);
+    
+    /* Shadows */
+    --shadow-cyan: 0 0 60px hsl(195 100% 35% / 0.15);
+    --shadow-amber: 0 0 60px hsl(25 100% 45% / 0.15);
+    --shadow-elegant: 0 25px 50px -12px hsl(210 30% 10% / 0.1);
+    
+    /* Typography */
+    --font-display: 'Inter', system-ui, sans-serif;
+    --font-body: 'Crimson Pro', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Animation */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Dark Mode */
+  .dark {
     /* Core Palette - Deep & Sophisticated */
     --background: 210 25% 3%;
     --foreground: 40 20% 96%;
@@ -44,8 +108,6 @@
     --input: 210 30% 18%;
     --ring: 188 100% 50%;
     
-    --radius: 0.75rem;
-    
     /* Custom Design Tokens */
     --gradient-hero: linear-gradient(135deg, hsl(210 60% 6%) 0%, hsl(210 70% 10%) 50%, hsl(220 50% 8%) 100%);
     --gradient-cyan: linear-gradient(135deg, hsl(188 100% 50%) 0%, hsl(200 100% 60%) 100%);
@@ -56,15 +118,6 @@
     --shadow-cyan: 0 0 60px hsl(188 100% 50% / 0.3);
     --shadow-amber: 0 0 60px hsl(33 100% 58% / 0.3);
     --shadow-elegant: 0 25px 50px -12px hsl(210 60% 3% / 0.8);
-    
-    /* Typography */
-    --font-display: 'Inter', system-ui, sans-serif;
-    --font-body: 'Crimson Pro', Georgia, serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    
-    /* Animation */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 }
 
