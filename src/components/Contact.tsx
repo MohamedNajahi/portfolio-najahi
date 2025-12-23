@@ -1,4 +1,4 @@
-import { Mail, Phone, Github, ArrowRight } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, ArrowRight } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -53,19 +53,30 @@ const Contact = () => {
             </a>
           </div>
 
-          {/* GitHub link */}
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-          >
-            <Github className="w-5 h-5" />
-            <span className="font-display font-medium">View GitHub Profile</span>
-          </a>
+          {/* Social links */}
+          <div className="flex justify-center gap-4 mb-16">
+            <a
+              href="https://github.com/MohamedNajahi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
+            >
+              <Github className="w-5 h-5" />
+              <span className="font-display font-medium">GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mohamed-najahi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
+            >
+              <Linkedin className="w-5 h-5" />
+              <span className="font-display font-medium">LinkedIn</span>
+            </a>
+          </div>
 
           {/* Primary CTA */}
-          <div className="mt-16">
+          <div>
             <a
               href="mailto:mnajahi887@gmail.com"
               className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-display font-bold text-lg transition-all group"

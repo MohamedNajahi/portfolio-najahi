@@ -3,19 +3,48 @@ import { useEffect, useRef, useState } from "react";
 const skillCategories = [
   {
     title: "AI & Machine Learning",
-    skills: ["Deep Learning", "CNNs", "Computer Vision", "NLP", "OpenCV", "MediaPipe", "Real-time Inference"],
+    skills: [
+      "Fine-tuning LLMs",
+      "RAG Pipelines",
+      "OpenAI",
+      "Hugging Face",
+      "LangChain",
+      "Computer Vision",
+      "NLP",
+    ],
+  },
+  {
+    title: "AI Agents & Frameworks",
+    skills: [
+      "LangGraph",
+      "CrewAI",
+      "Autogen",
+      "OpenCV",
+      "MediaPipe",
+      "TensorFlow",
+    ],
   },
   {
     title: "Development",
-    skills: ["Python", "JavaScript", "TypeScript", "React", "IoT Systems", "ESP32", "Firebase"],
-  },
-  {
-    title: "Tools & Frameworks",
-    skills: ["TensorFlow", "Git & GitHub", "Google Gemini AI", "Chrome Extensions", "Tailwind CSS"],
+    skills: [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Chrome Extensions",
+      "IoT Systems",
+      "Firebase",
+    ],
   },
   {
     title: "Mindset",
-    skills: ["Problem Decomposition", "User-Centered Design", "Research-First", "Continuous Learning"],
+    skills: [
+      "Real-world AI Products",
+      "Model Optimization",
+      "Structured Metrics",
+      "Research to Production",
+      "Continuous Learning",
+    ],
   },
 ];
 
@@ -73,13 +102,13 @@ const Skills = () => {
                     }`}
                     style={{ 
                       transitionDelay: `${categoryIndex * 100 + skillIndex * 50}ms`,
-                      background: categoryIndex === 0 || categoryIndex === 2 
+                      background: categoryIndex === 0 || categoryIndex === 1 
                         ? 'hsl(var(--primary) / 0.1)' 
                         : 'hsl(var(--secondary) / 0.1)',
-                      color: categoryIndex === 0 || categoryIndex === 2 
+                      color: categoryIndex === 0 || categoryIndex === 1 
                         ? 'hsl(var(--primary))' 
                         : 'hsl(var(--secondary))',
-                      border: `1px solid ${categoryIndex === 0 || categoryIndex === 2 
+                      border: `1px solid ${categoryIndex === 0 || categoryIndex === 1 
                         ? 'hsl(var(--primary) / 0.2)' 
                         : 'hsl(var(--secondary) / 0.2)'}`,
                     }}
