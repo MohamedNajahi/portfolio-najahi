@@ -22,7 +22,7 @@ const projects = [
     story: "Traditional input devices create distance between intention and action. This project eliminates that distance entirely. Using computer vision and hand tracking, the snake follows your movements in real-time. It's not about making games harder—it's about exploring how humans can interact with computers more naturally.",
     tech: ["OpenCV", "MediaPipe", "Python", "60fps Real-time"],
     accentColor: "primary",
-    link: "#",
+    link: "https://github.com/MohamedNajahi/CVSnakeGameProject",
   },
   {
     id: "ats-resume",
@@ -33,7 +33,7 @@ const projects = [
     story: "Job seekers rewrite resumes blindly, hoping keywords match. Recruiters use Applicant Tracking Systems that score resumes algorithmically. There's a gap—candidates don't know what the algorithm values. This tool analyzes any resume against any job description, scoring match quality and highlighting missing keywords.",
     tech: ["NLP", "TF-IDF", "Semantic Matching", "PDF Parsing"],
     accentColor: "secondary",
-    link: "#",
+    link: "https://github.com/MohamedNajahi/Resume_Score_Finder",
   },
   {
     id: "sign-language",
@@ -56,7 +56,7 @@ const projects = [
     story: "Grammar checkers exist, but most require copying text into separate tools—breaking flow and losing context. ClearCanvas works directly on any web page, using Google Gemini AI to detect errors in real-time, highlighting them precisely, and scrolling to exact locations.",
     tech: ["Chrome Extension", "Gemini AI", "DOM TreeWalker", "Real-time"],
     accentColor: "primary",
-    link: "#",
+    link: "https://github.com/MohamedNajahi/ClearCanvas",
   },
 ];
 
@@ -179,15 +179,23 @@ const Projects = () => {
                 </div>
 
                 {/* CTA */}
-                <a
-                  href={project.link}
-                  className={`inline-flex items-center gap-2 font-display font-medium group/link ${
-                    project.accentColor === 'primary' ? 'text-primary' : 'text-secondary'
-                  } hover:gap-3 transition-all`}
-                >
-                  <span className="link-underline">View Project</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                {project.link !== "#" ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 font-display font-medium group/link ${
+                      project.accentColor === 'primary' ? 'text-primary' : 'text-secondary'
+                    } hover:gap-3 transition-all`}
+                  >
+                    <span className="link-underline">View on GitHub</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-2 font-display font-medium text-muted-foreground">
+                    <span>Coming Soon</span>
+                  </span>
+                )}
               </div>
             </article>
           ))}
