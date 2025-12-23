@@ -197,30 +197,23 @@ const Hero = () => {
           {/* Role tagline */}
           <div className="opacity-0 animate-fade-up delay-200">
             <p className="font-display text-xl md:text-2xl lg:text-3xl font-medium">
-              <span className="text-primary">AI & ML Enthusiast</span>
-              <span className="text-muted-foreground mx-3">/</span>
+              <span className="text-primary">AI & ML Engineer</span>
+              <span className="text-muted-foreground mx-3">|</span>
               <span className="text-secondary">Entrepreneur</span>
-              <span className="text-muted-foreground mx-3">/</span>
+              <span className="text-muted-foreground mx-3">|</span>
               <span className="text-foreground">Builder</span>
             </p>
           </div>
 
           {/* Main description */}
-          <div className="opacity-0 animate-fade-up delay-400 pt-4">
+          <div className="opacity-0 animate-fade-up delay-400 pt-6">
             <p className="body-large text-muted-foreground max-w-2xl mx-auto">
-              Forging the future with{" "}
-              <span className="text-foreground font-medium">Artificial Intelligence</span>
+              Creating real-world{" "}
+              <span className="text-foreground font-medium">AI</span>
               {" "}and{" "}
-              <span className="text-foreground font-medium">Embedded Systems</span>.
-            </p>
-          </div>
-
-          {/* Location */}
-          <div className="opacity-0 animate-fade-up delay-600 pt-2">
-            <p className="flex items-center justify-center gap-2 text-muted-foreground font-display text-sm tracking-wider">
-              <MapPin className="w-4 h-4 text-secondary" />
-              <span>Currently building real-world solutions in</span>
-              <span className="text-secondary font-medium">Sri Lanka</span>
+              <span className="text-foreground font-medium">embedded solutions</span>
+              {" "}that make an impact in{" "}
+              <span className="text-secondary font-medium">Sri Lanka</span>.
             </p>
           </div>
         </div>
