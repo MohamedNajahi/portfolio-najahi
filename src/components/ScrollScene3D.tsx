@@ -58,35 +58,35 @@ const ScrollShape = ({ progress }: { progress: number }) => {
   return (
     <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.6}>
       <group ref={groupRef}>
-        {/* Outer wireframe icosahedron */}
+        {/* Outer wireframe icosahedron — primary teal */}
         <mesh>
           <icosahedronGeometry args={[1.6, 1]} />
           <meshBasicMaterial
             color="#116466"
             wireframe
             transparent
-            opacity={0.55}
+            opacity={0.5}
           />
         </mesh>
 
-        {/* Inner solid shape with subtle glow */}
+        {/* Inner solid shape — warm beige with peach glow */}
         <mesh ref={innerRef}>
           <icosahedronGeometry args={[1.0, 0]} />
           <meshStandardMaterial
             color="#D9B08C"
-            roughness={0.3}
-            metalness={0.4}
+            roughness={0.35}
+            metalness={0.3}
             emissive="#FFCB9A"
-            emissiveIntensity={0.25}
+            emissiveIntensity={0.3}
             transparent
             opacity={0.85}
           />
         </mesh>
 
-        {/* Outer ring */}
+        {/* Outer ring — primary teal */}
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <torusGeometry args={[2.2, 0.015, 12, 80]} />
-          <meshBasicMaterial color="#116466" transparent opacity={0.4} />
+          <meshBasicMaterial color="#116466" transparent opacity={0.45} />
         </mesh>
       </group>
     </Float>
@@ -102,9 +102,9 @@ const Scene = () => {
       dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true }}
     >
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[3, 5, 4]} intensity={1.2} color="#FFCB9A" />
-      <pointLight position={[-3, -2, 2]} intensity={0.8} color="#116466" />
+      <ambientLight intensity={0.7} />
+      <directionalLight position={[3, 5, 4]} intensity={1.1} color="#FFCB9A" />
+      <pointLight position={[-3, -2, 2]} intensity={0.7} color="#116466" />
       <ScrollShape progress={progress} />
     </Canvas>
   );
