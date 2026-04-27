@@ -83,6 +83,9 @@ const About = () => {
               <p className="body-large text-foreground">
                 I'm Mohamed Najahi, a 3rd-year Computer Science with AI student at the National Institute of Business Management in Sri Lanka.
               </p>
+              <p className="body-text text-muted-foreground">
+                I've also had the opportunity to apply my knowledge in a real-world environment through a <span className="text-secondary font-medium">6-month AI/ML internship</span>, where I worked on practical systems beyond academic projects.
+              </p>
             </div>
 
             {/* Core values */}
