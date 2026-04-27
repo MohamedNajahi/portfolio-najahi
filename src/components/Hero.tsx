@@ -149,8 +149,11 @@ const Hero = () => {
       {/* Canvas for particle network */}
       <canvas 
         ref={canvasRef}
-        className="absolute inset-0 pointer-events-none opacity-60"
+        className="absolute inset-0 pointer-events-none opacity-30"
       />
+
+      {/* 3D scroll-driven scene */}
+      <ScrollScene3D />
 
       {/* Floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
