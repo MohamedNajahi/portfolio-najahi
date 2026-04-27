@@ -67,9 +67,17 @@ const Navigation = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="font-display text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="group relative font-display text-sm font-medium text-muted-foreground hover:text-foreground transition-colors overflow-hidden h-5 inline-block"
                 >
-                  {link.label}
+                  <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.2,1)] group-hover:-translate-y-full">
+                    {link.label}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 block translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.2,1)] group-hover:translate-y-0 text-primary"
+                  >
+                    {link.label}
+                  </span>
                 </a>
               ))}
             </div>
@@ -79,9 +87,19 @@ const Navigation = () => {
               <a
                 href="#contact"
                 onClick={handleContactClick}
-                className="font-display text-sm font-medium px-5 py-2.5 rounded-full bg-foreground text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                className="group relative font-display text-sm font-medium px-5 py-2.5 rounded-full bg-foreground text-background overflow-hidden transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
               >
-                Contact me
+                <span className="relative z-10 inline-block overflow-hidden h-5 align-middle">
+                  <span className="block transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.2,1)] group-hover:-translate-y-full">
+                    Contact me
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 block translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.2,1)] group-hover:translate-y-0"
+                  >
+                    Contact me
+                  </span>
+                </span>
               </a>
             </div>
 
