@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react";
-import { ChevronDown, MapPin } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
+import ScrollScene3D from "./ScrollScene3D";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
