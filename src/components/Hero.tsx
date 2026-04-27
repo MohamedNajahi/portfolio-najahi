@@ -71,6 +71,10 @@ const Hero = () => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Read theme tokens for canvas (works in light & dark)
+      const styles = getComputedStyle(document.documentElement);
+      const primaryHsl = styles.getPropertyValue("--primary").trim() || "181 71% 23%";
+
       // Draw connections
       particles.forEach((p1, i) => {
         particles.slice(i + 1).forEach((p2) => {
@@ -80,7 +84,7 @@ const Hero = () => {
 
           if (dist < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 217, 255, ${0.1 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `hsla(${primaryHsl} / ${0.15 * (1 - dist / 150)})`;
             ctx.lineWidth = 1;
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -93,7 +97,7 @@ const Hero = () => {
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 217, 255, ${p.opacity})`;
+        ctx.fillStyle = `hsla(${primaryHsl} / ${p.opacity * 0.7})`;
         ctx.fill();
 
         // Update position
@@ -133,23 +137,23 @@ const Hero = () => {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated mesh background */}
-      <div 
+      {/* Animated mesh background — earthy calm-tech palette */}
+      <div
         className="absolute inset-0"
         style={{
           background: `
-            radial-gradient(ellipse 80% 50% at 50% -20%, hsl(188 100% 50% / 0.15), transparent),
-            radial-gradient(ellipse 60% 40% at 80% 60%, hsl(33 100% 58% / 0.1), transparent),
-            radial-gradient(ellipse 50% 50% at 20% 80%, hsl(188 100% 50% / 0.08), transparent),
-            linear-gradient(180deg, hsl(210 70% 4%) 0%, hsl(210 60% 8%) 50%, hsl(210 50% 6%) 100%)
-          `
+            radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.18), transparent 60%),
+            radial-gradient(ellipse 60% 40% at 80% 60%, hsl(var(--secondary) / 0.18), transparent 65%),
+            radial-gradient(ellipse 50% 50% at 20% 80%, hsl(var(--secondary-glow) / 0.15), transparent 70%),
+            var(--gradient-hero)
+          `,
         }}
       />
 
       {/* Canvas for particle network */}
-      <canvas 
+      <canvas
         ref={canvasRef}
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-40"
       />
 
       {/* 3D scroll-driven scene */}
@@ -157,40 +161,40 @@ const Hero = () => {
 
       {/* Floating geometric shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div 
-          className="absolute top-20 left-[10%] w-64 h-64 border border-primary/10 rounded-full animate-float"
+        <div
+          className="absolute top-20 left-[10%] w-64 h-64 border border-primary/15 rounded-full animate-float"
           style={{ animationDelay: '0s' }}
         />
-        <div 
-          className="absolute top-40 right-[15%] w-32 h-32 border border-secondary/10 rotate-45 animate-float"
+        <div
+          className="absolute top-40 right-[15%] w-32 h-32 border border-secondary/20 rotate-45 animate-float"
           style={{ animationDelay: '2s' }}
         />
-        <div 
-          className="absolute bottom-32 left-[20%] w-48 h-48 border border-primary/5 rounded-full animate-float"
+        <div
+          className="absolute bottom-32 left-[20%] w-48 h-48 border border-primary/10 rounded-full animate-float"
           style={{ animationDelay: '4s' }}
         />
-        <div 
-          className="absolute bottom-20 right-[25%] w-24 h-24 border border-secondary/10 rotate-12 animate-float"
+        <div
+          className="absolute bottom-20 right-[25%] w-24 h-24 border border-secondary/20 rotate-12 animate-float"
           style={{ animationDelay: '1s' }}
         />
       </div>
 
       {/* Gradient orbs with mouse movement */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div 
-          className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full opacity-20 blur-[100px]"
-          style={{ 
-            background: 'hsl(188 100% 50%)',
+        <div
+          className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full opacity-25 blur-[100px]"
+          style={{
+            background: 'hsl(var(--primary))',
             transform: 'translate(var(--mouse-x, 0), var(--mouse-y, 0))',
-            transition: 'transform 0.4s ease-out'
+            transition: 'transform 0.4s ease-out',
           }}
         />
-        <div 
-          className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full opacity-15 blur-[80px]"
-          style={{ 
-            background: 'hsl(33 100% 58%)',
+        <div
+          className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full opacity-25 blur-[80px]"
+          style={{
+            background: 'hsl(var(--secondary-glow))',
             transform: 'translate(calc(var(--mouse-x, 0) * -0.5), calc(var(--mouse-y, 0) * -0.5))',
-            transition: 'transform 0.6s ease-out'
+            transition: 'transform 0.6s ease-out',
           }}
         />
       </div>
