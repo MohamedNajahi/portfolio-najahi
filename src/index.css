@@ -5,119 +5,111 @@
 @tailwind utilities;
 
 @layer base {
-  /* Light Mode - Default */
+  /* Light Mode - Calm, earthy, premium-tech */
   :root {
-    /* Core Palette - Light & Clean */
-    --background: 40 30% 97%;
-    --foreground: 210 60% 10%;
-    
-    /* Navy depths */
-    --midnight: 210 30% 92%;
-    --midnight-deep: 210 25% 95%;
-    
-    /* Primary - Electric Cyan */
-    --primary: 195 100% 35%;
-    --primary-glow: 195 100% 45%;
-    --primary-foreground: 0 0% 100%;
-    
-    /* Secondary - Warm Amber */
-    --secondary: 25 100% 45%;
-    --secondary-glow: 25 100% 55%;
-    --secondary-foreground: 0 0% 100%;
-    
+    /* Core Palette */
+    --background: 165 38% 87%;          /* #D1E8E2 pale mint */
+    --foreground: 165 9% 18%;           /* #2C3531 forest charcoal */
+
+    /* Depth layers (replacing "midnight") */
+    --midnight: 165 9% 18%;             /* #2C3531 deep forest */
+    --midnight-deep: 165 12% 12%;       /* deeper forest */
+
+    /* Primary - Rich Teal (Interaction layer) */
+    --primary: 181 71% 23%;             /* #116466 */
+    --primary-glow: 181 55% 35%;
+    --primary-foreground: 165 38% 95%;
+
+    /* Secondary - Warm Beige (Human layer) */
+    --secondary: 28 51% 70%;            /* #D9B08C */
+    --secondary-glow: 28 100% 80%;      /* #FFCB9A peach */
+    --secondary-foreground: 165 9% 18%;
+
     /* Accent */
-    --accent: 210 40% 94%;
-    --accent-foreground: 210 60% 10%;
-    
+    --accent: 165 30% 80%;
+    --accent-foreground: 165 9% 18%;
+
     /* UI Elements */
-    --card: 0 0% 100%;
-    --card-foreground: 210 60% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 60% 10%;
-    
-    --muted: 210 20% 92%;
-    --muted-foreground: 210 15% 40%;
-    
-    --destructive: 0 84% 60%;
+    --card: 165 40% 94%;
+    --card-foreground: 165 9% 18%;
+    --popover: 165 40% 94%;
+    --popover-foreground: 165 9% 18%;
+
+    --muted: 165 25% 82%;
+    --muted-foreground: 165 12% 35%;
+
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
-    
-    --border: 210 20% 85%;
-    --input: 210 20% 85%;
-    --ring: 195 100% 35%;
-    
+
+    --border: 165 20% 75%;
+    --input: 165 20% 75%;
+    --ring: 181 71% 23%;
+
     --radius: 0.75rem;
-    
+
     /* Custom Design Tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(40 30% 97%) 0%, hsl(210 30% 95%) 50%, hsl(40 20% 96%) 100%);
-    --gradient-cyan: linear-gradient(135deg, hsl(195 100% 35%) 0%, hsl(200 100% 45%) 100%);
-    --gradient-amber: linear-gradient(135deg, hsl(25 100% 45%) 0%, hsl(30 100% 55%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(195 100% 35% / 0.1) 0%, transparent 70%);
-    
+    --gradient-hero: linear-gradient(135deg, hsl(165 38% 87%) 0%, hsl(165 30% 82%) 50%, hsl(28 40% 88%) 100%);
+    --gradient-cyan: linear-gradient(135deg, hsl(181 71% 23%) 0%, hsl(181 55% 35%) 100%);
+    --gradient-amber: linear-gradient(135deg, hsl(28 51% 70%) 0%, hsl(28 100% 80%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(181 71% 23% / 0.12) 0%, transparent 70%);
+
     /* Shadows */
-    --shadow-cyan: 0 0 60px hsl(195 100% 35% / 0.15);
-    --shadow-amber: 0 0 60px hsl(25 100% 45% / 0.15);
-    --shadow-elegant: 0 25px 50px -12px hsl(210 30% 10% / 0.1);
-    
+    --shadow-cyan: 0 0 60px hsl(181 71% 23% / 0.18);
+    --shadow-amber: 0 0 60px hsl(28 100% 80% / 0.35);
+    --shadow-elegant: 0 25px 50px -12px hsl(165 9% 18% / 0.12);
+
     /* Typography */
     --font-display: 'Inter', system-ui, sans-serif;
     --font-body: 'Crimson Pro', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
-    
+
     /* Animation */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  /* Dark Mode */
+  /* Dark Mode - Deep forest, premium calm */
   .dark {
-    /* Core Palette - Deep & Sophisticated */
-    --background: 210 25% 3%;
-    --foreground: 40 20% 96%;
-    
-    /* Navy depths */
-    --midnight: 210 60% 10%;
-    --midnight-deep: 210 70% 6%;
-    
-    /* Primary - Electric Cyan */
-    --primary: 188 100% 50%;
-    --primary-glow: 188 100% 60%;
-    --primary-foreground: 210 60% 6%;
-    
-    /* Secondary - Warm Amber */
-    --secondary: 33 100% 58%;
-    --secondary-glow: 33 100% 68%;
-    --secondary-foreground: 210 60% 6%;
-    
-    /* Accent - Cream for readability sections */
-    --accent: 35 30% 96%;
-    --accent-foreground: 210 60% 10%;
-    
-    /* UI Elements */
-    --card: 210 40% 8%;
-    --card-foreground: 40 20% 96%;
-    --popover: 210 40% 8%;
-    --popover-foreground: 40 20% 96%;
-    
-    --muted: 210 30% 15%;
-    --muted-foreground: 210 15% 60%;
-    
-    --destructive: 0 84% 60%;
+    --background: 165 9% 18%;           /* #2C3531 forest charcoal */
+    --foreground: 165 38% 92%;          /* mint-tinted cream */
+
+    --midnight: 181 71% 18%;            /* deep teal */
+    --midnight-deep: 165 12% 10%;       /* deepest forest */
+
+    --primary: 181 55% 45%;             /* lifted teal for contrast */
+    --primary-glow: 181 60% 55%;
+    --primary-foreground: 165 9% 12%;
+
+    --secondary: 28 60% 75%;            /* warm beige */
+    --secondary-glow: 28 100% 80%;      /* peach */
+    --secondary-foreground: 165 9% 12%;
+
+    --accent: 28 51% 70%;
+    --accent-foreground: 165 9% 12%;
+
+    --card: 165 12% 14%;
+    --card-foreground: 165 38% 92%;
+    --popover: 165 12% 14%;
+    --popover-foreground: 165 38% 92%;
+
+    --muted: 165 10% 22%;
+    --muted-foreground: 165 15% 70%;
+
+    --destructive: 0 70% 55%;
     --destructive-foreground: 0 0% 100%;
-    
-    --border: 210 30% 18%;
-    --input: 210 30% 18%;
-    --ring: 188 100% 50%;
-    
-    /* Custom Design Tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(210 60% 6%) 0%, hsl(210 70% 10%) 50%, hsl(220 50% 8%) 100%);
-    --gradient-cyan: linear-gradient(135deg, hsl(188 100% 50%) 0%, hsl(200 100% 60%) 100%);
-    --gradient-amber: linear-gradient(135deg, hsl(33 100% 58%) 0%, hsl(25 100% 65%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(188 100% 50% / 0.15) 0%, transparent 70%);
-    
-    /* Shadows */
-    --shadow-cyan: 0 0 60px hsl(188 100% 50% / 0.3);
-    --shadow-amber: 0 0 60px hsl(33 100% 58% / 0.3);
-    --shadow-elegant: 0 25px 50px -12px hsl(210 60% 3% / 0.8);
+
+    --border: 165 10% 26%;
+    --input: 165 10% 26%;
+    --ring: 181 55% 45%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(165 9% 18%) 0%, hsl(181 71% 14%) 50%, hsl(165 12% 12%) 100%);
+    --gradient-cyan: linear-gradient(135deg, hsl(181 71% 23%) 0%, hsl(181 55% 45%) 100%);
+    --gradient-amber: linear-gradient(135deg, hsl(28 51% 70%) 0%, hsl(28 100% 80%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(181 55% 45% / 0.18) 0%, transparent 70%);
+
+    --shadow-cyan: 0 0 60px hsl(181 55% 45% / 0.3);
+    --shadow-amber: 0 0 60px hsl(28 100% 80% / 0.25);
+    --shadow-elegant: 0 25px 50px -12px hsl(165 12% 6% / 0.7);
   }
 }
 
