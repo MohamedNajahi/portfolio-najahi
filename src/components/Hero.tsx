@@ -195,8 +195,16 @@ const Hero = () => {
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 section-container text-center max-w-5xl">
+      {/* Content with 3D scroll parallax */}
+      <div
+        className="relative z-10 section-container text-center max-w-5xl"
+        style={{
+          transform: `perspective(1200px) translateY(${scrollY * 0.35}px) translateZ(${-scrollY * 0.5}px) rotateX(${Math.min(scrollY * 0.04, 18)}deg)`,
+          opacity: Math.max(0, 1 - scrollY / 600),
+          transformStyle: "preserve-3d",
+          willChange: "transform, opacity",
+        }}
+      >
         <div className="space-y-6">
           {/* Name */}
           <h1 className="opacity-0 animate-fade-up">
