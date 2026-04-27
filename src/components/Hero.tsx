@@ -71,6 +71,10 @@ const Hero = () => {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Read theme tokens for canvas (works in light & dark)
+      const styles = getComputedStyle(document.documentElement);
+      const primaryHsl = styles.getPropertyValue("--primary").trim() || "181 71% 23%";
+
       // Draw connections
       particles.forEach((p1, i) => {
         particles.slice(i + 1).forEach((p2) => {
@@ -80,7 +84,7 @@ const Hero = () => {
 
           if (dist < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 217, 255, ${0.1 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `hsla(${primaryHsl} / ${0.15 * (1 - dist / 150)})`;
             ctx.lineWidth = 1;
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -93,7 +97,7 @@ const Hero = () => {
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 217, 255, ${p.opacity})`;
+        ctx.fillStyle = `hsla(${primaryHsl} / ${p.opacity * 0.7})`;
         ctx.fill();
 
         // Update position
