@@ -5,6 +5,7 @@ import ScrollScene3D from "./ScrollScene3D";
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -21,6 +22,12 @@ const Hero = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Animated particles/nodes effect
