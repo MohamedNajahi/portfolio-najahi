@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "Philosophy", href: "#philosophy" },
@@ -9,7 +8,6 @@ const navLinks = [
   { label: "Approach", href: "#approach" },
   { label: "Skills", href: "#skills" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const Navigation = () => {
@@ -18,7 +16,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -32,53 +30,71 @@ const Navigation = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-xl border-b border-border/50 py-4"
-            : "bg-transparent py-6"
-        }`}
-      >
-        <div className="section-container flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#"
-            className="font-display font-black text-xl text-foreground hover:text-primary transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            MN
-          </a>
-
-          {/* Desktop navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="font-display text-sm text-muted-foreground hover:text-foreground transition-colors link-underline"
-              >
-                {link.label}
-              </a>
-            ))}
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile controls */}
-          <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="w-10 h-10 flex items-center justify-center text-foreground"
-              aria-label="Toggle menu"
+      <nav className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8">
+        <div
+          className={`max-w-6xl mx-auto rounded-full transition-all duration-500 ${
+            scrolled
+              ? "bg-background/85 backdrop-blur-xl border border-border/60 shadow-elegant"
+              : "bg-background/60 backdrop-blur-md border border-border/40"
+          }`}
+          style={{ boxShadow: scrolled ? "var(--shadow-elegant)" : undefined }}
+        >
+          <div className="flex items-center justify-between pl-6 pr-2 py-2">
+            {/* Logo */}
+            <a
+              href="#"
+              className="font-display font-black text-lg text-foreground hover:text-primary transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
             >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+              MN
+            </a>
+
+            {/* Desktop navigation */}
+            <div className="hidden md:flex items-center gap-7">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className="font-display text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            {/* Right side - Contact CTA */}
+            <div className="hidden md:flex items-center">
+              <a
+                href="#contact"
+                onClick={handleContactClick}
+                className="font-display text-sm font-medium px-5 py-2.5 rounded-full bg-foreground text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
+                Contact me
+              </a>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="flex md:hidden items-center">
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="w-10 h-10 flex items-center justify-center text-foreground rounded-full hover:bg-muted/50 transition-colors"
+                aria-label="Toggle menu"
+              >
+                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -104,6 +120,16 @@ const Navigation = () => {
               {link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={handleContactClick}
+            className={`font-display text-base font-medium px-7 py-3 rounded-full bg-foreground text-background transition-all ${
+              mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: `${navLinks.length * 50}ms` }}
+          >
+            Contact me
+          </a>
         </div>
       </div>
     </>
